@@ -1,0 +1,26 @@
+[
+  {
+    "id": "standard",
+    "name": "Pokój Standard",
+    "description": "Przytulny pokój dla 2 osób z łazienką i balkonem.",
+    "price": 180,
+    "image": "/images/rooms/standard.jpg",
+    "amenities": ["WiFi", "TV", "Balkon", "Lodówka"]
+  },
+  {
+    "id": "deluxe",
+    "name": "Pokój Deluxe",
+    "description": "Przestronny pokój z widokiem na ogród, idealny dla par.",
+    "price": 240,
+    "image": "/images/rooms/deluxe.jpg",
+    "amenities": ["WiFi", "TV", "Klimatyzacja", "Suszarka", "Ręczniki"]
+  },
+  {
+    "id": "studio",
+    "name": "Studio Rodzinne",
+    "description": "Apartament typu studio z aneksem kuchennym, idealny dla rodzin.",
+    "price": 320,
+    "image": "/images/rooms/studio.jpg",
+    "amenities": ["WiFi", "TV", "Aneks kuchenny", "Łóżko podwójne", "Rozkładana sofa"]
+  }
+]
