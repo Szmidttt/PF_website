@@ -9,13 +9,11 @@ export default function Lang() {
         {langLinks.map((link) => {
             const LinkIcon = link.icon;
             return (
-                <div>
                     <Link
                         href={link.link}
                         key={`link-${link.link}`}>
                         <LinkIcon className='w-6 p-1'/>
                     </Link>
-                </div>
             );
         })}
     </div>);

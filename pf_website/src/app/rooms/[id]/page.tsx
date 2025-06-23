@@ -3,13 +3,18 @@ import rooms from "@/app/data/rooms.json"
 
 
 export function generateStaticParams() {
-  return rooms.map((room) => ({
-    id: room.id,
-  }));
+    return rooms.map((room) => ({
+        id: room.id,
+    }));
 }
 
-export default function Page({ params }: { params: { id: string } }) {
-    const room=rooms.find((r)=>r.id===params.id)
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ id: string }>
+}) {
+    const { id } = await params
+    const room = rooms.find((r) => r.id === id)
     if (!room) return <div>Nie ma takiego pokoju</div>
     return (
         <div className="flex h-screen">
@@ -28,7 +33,7 @@ export default function Page({ params }: { params: { id: string } }) {
                     <span className="font-semibold px-4">{room.price} zł/dzień</span>
                     <span className="bg-white py-2 px-4 ">TODO rezerwacja</span>
                 </div>
-                
+
 
             </div>
         </div>

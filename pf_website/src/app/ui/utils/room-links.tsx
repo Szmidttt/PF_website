@@ -6,11 +6,10 @@ export default function RoomLinks() {
     return (<>
         {rooms.map((room) => {
             return (
-                <div className="flex h-1/3 px-60 py-7">
+                <div key={room.id} className="flex h-1/3 px-60 py-7">
                     <Image
                         className="w-1/2 h-full object-cover"
                         src={room.image}
-                        key={room.id}
                         width={1920}
                         height={1280}
                         alt={room.id}
