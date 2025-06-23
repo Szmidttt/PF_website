@@ -1,4 +1,3 @@
-import {} from "next";
 import Image from "next/image";
 import rooms from "@/app/data/rooms.json"
 
