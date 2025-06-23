@@ -2,7 +2,7 @@ import Image from "next/image";
 import rooms from "@/app/data/rooms.json"
 
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return rooms.map((room) => ({
     id: room.id,
   }));
