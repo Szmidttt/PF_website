@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { FaFacebook,FaInstagram } from 'react-icons/fa';
 
 const links = [
-    { icon: FaFacebook, href: '/', key: 'facebook' },
-    { icon: FaInstagram, href: '/rooms', key: 'instagram' }
+    { icon: FaFacebook, href: 'facebook.com', key: 'facebook' },
+    { icon: FaInstagram, href: 'instagram.com', key: 'instagram' }
 ];
 
 export default function SocialsLinks() {

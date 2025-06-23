@@ -2,25 +2,31 @@
   {
     "id": "standard",
     "name": "Pokój Standard",
-    "description": "Przytulny pokój dla 2 osób z łazienką i balkonem.",
+    "link": "/rooms/standard",
+    "short_description": "Przytulny pokój dla 2 osób z łazienką i balkonem.",
+    "description": "Pokój Standard to komfortowa przestrzeń idealna dla par lub osób podróżujących samotnie. Wyposażony jest w łazienkę z prysznicem, balkon z widokiem na okolicę oraz wszystkie podstawowe udogodnienia niezbędne do przyjemnego pobytu.",
     "price": 180,
-    "image": "/images/rooms/standard.jpg",
+    "image": "/rooms/standard.jpg",
     "amenities": ["WiFi", "TV", "Balkon", "Lodówka"]
   },
   {
     "id": "deluxe",
     "name": "Pokój Deluxe",
-    "description": "Przestronny pokój z widokiem na ogród, idealny dla par.",
+    "link": "/rooms/deluxe",
+    "short_description": "Przestronny pokój z widokiem na ogród, idealny dla par.",
+    "description": "Pokój Deluxe oferuje więcej przestrzeni i komfortu, idealny dla gości ceniących sobie luksus i relaks. Znajduje się w nim łóżko typu queen-size, klimatyzacja, przestronna łazienka oraz piękny widok na ogród.",
     "price": 240,
-    "image": "/images/rooms/deluxe.jpg",
+    "image": "/rooms/deluxe.jpg",
     "amenities": ["WiFi", "TV", "Klimatyzacja", "Suszarka", "Ręczniki"]
   },
   {
     "id": "studio",
     "name": "Studio Rodzinne",
-    "description": "Apartament typu studio z aneksem kuchennym, idealny dla rodzin.",
+    "link": "/rooms/studio",
+    "short_description": "Apartament typu studio z aneksem kuchennym, idealny dla rodzin.",
+    "description": "Studio Rodzinne to idealne rozwiązanie dla rodzin z dziećmi. Przestronny apartament zawiera aneks kuchenny, łóżko małżeńskie i wygodną rozkładaną sofę. Dzięki funkcjonalnemu układowi i domowej atmosferze gwarantuje komfortowy pobyt dla całej rodziny.",
     "price": 320,
-    "image": "/images/rooms/studio.jpg",
+    "image": "/rooms/studio.jpg",
     "amenities": ["WiFi", "TV", "Aneks kuchenny", "Łóżko podwójne", "Rozkładana sofa"]
   }
 ]

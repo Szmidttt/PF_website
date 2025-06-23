@@ -2,6 +2,8 @@
 import { MapPinIcon } from "@heroicons/react/24/outline";
 import NavLinks from "./utils/nav-links";
 import ThemeButton from "./utils/theme-button";
+import SocialsLinks from "./utils/social-links";
+import Lang from "./utils/lang";
 export default function Nav() {
     return (<>
         <div className="bg-blue-50">
@@ -14,7 +16,12 @@ export default function Nav() {
                     <span className="text-xl font-bold">PENSJONAT</span>
                 </div>
                 <div className="flex justify-end">
-                    Jakieś cos
+                    <div className="flex flex-col">
+                        <SocialsLinks/>
+                        <Lang/>
+                    </div>
+                    
+
                     {/* <ThemeButton/> */}
                 </div>
             </div>

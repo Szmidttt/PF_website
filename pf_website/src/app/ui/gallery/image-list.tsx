@@ -7,7 +7,7 @@ export default function ImageList(){
             <Image
                 className="p-4"
                 src={`/gallery/${img}`}
-                key={img}
+                key={`unique${img}`}
                 width={300}
                 height={50}
                 alt={`zdjęcie ${img}`}
