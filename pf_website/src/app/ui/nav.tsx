@@ -10,7 +10,7 @@ export default function Nav() {
             <div className="grid grid-cols-3 p-7">
                 <div className="flex flex-row">
                     <MapPinIcon className="w-6" />
-                    <span>ul. Wczasowa ???, Karwieńskie Błoto II 84-105</span>
+                    <span>ul. Wczasowa 61, Karwieńskie Błoto II 84-105</span>
                 </div>
                 <div className="flex flex-1 justify-center">
                     <span className="text-xl font-bold">PENSJONAT</span>

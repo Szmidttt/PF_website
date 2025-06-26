@@ -21,7 +21,7 @@ export default function RoomLinks() {
                         <Link
                             href={room.link}
                             key={room.id}>
-                            <span className="bg-white px-4 py-2">Więcej</span>
+                            <span className="bg-white px-4 py-2 rounded-lg hover:bg-gray-100 ">Więcej</span>
                         </Link>
                     </div>
                 </div>)

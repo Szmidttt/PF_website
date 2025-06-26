@@ -1,6 +1,7 @@
 import Image from "next/image";
 import rooms from "@/app/data/rooms.json"
-
+import FormPopup from "../../ui/reservation-form";
+import 'reactjs-popup/dist/index.css';
 
 export function generateStaticParams() {
     return rooms.map((room) => ({
@@ -9,9 +10,9 @@ export function generateStaticParams() {
 }
 
 export default async function Page({
-  params,
+    params,
 }: {
-  params: Promise<{ id: string }>
+    params: Promise<{ id: string }>
 }) {
     const { id } = await params
     const room = rooms.find((r) => r.id === id)
@@ -31,11 +32,11 @@ export default async function Page({
                 <span className="p-2">{room.description}</span>
                 <div className="flex flex-row">
                     <span className="font-semibold px-4">{room.price} zł/dzień</span>
-                    <span className="bg-white py-2 px-4 ">TODO rezerwacja</span>
+                    <FormPopup id={room.id}/>
                 </div>
 
-
             </div>
+
         </div>
     );
 }
