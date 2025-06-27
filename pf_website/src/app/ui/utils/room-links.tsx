@@ -1,7 +1,7 @@
 import Image from "next/image";
 import rooms from "@/app/data/rooms.json"
 import Link from "next/link";
-
+import ReservationForm from "../reservation-form";
 export default function RoomLinks() {
     return (<>
         {rooms.map((room) => {
@@ -18,11 +18,15 @@ export default function RoomLinks() {
                         <span className="font-bold p-2">{room.name}</span>
                         <span className="p-2">{room.short_description}</span>
                         <span className="font-semibold p-2">{room.price} zł/dzień</span>
+                        <div className="flex flex-row m-2">
                         <Link
                             href={room.link}
                             key={room.id}>
                             <span className="bg-white px-4 py-2 rounded-lg hover:bg-gray-100 ">Więcej</span>
+                            
                         </Link>
+                        <ReservationForm id={room.id}/>
+                        </div>
                     </div>
                 </div>)
         })}

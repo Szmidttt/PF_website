@@ -16,7 +16,7 @@ type FormProps = {
 
 export default function Form({ id }: FormProps) {
     const [disabledDates, setDiabledDates] = useState(new Set());
-    const [value, onChange] = useState<Value>(new Date());
+    const [value, onChange] = useState<Value>(null);
     const isFirstRender = useRef(true);
     const getStartDate = () => {
         if (Array.isArray(value) && value[0] !== null) {
@@ -40,7 +40,7 @@ export default function Form({ id }: FormProps) {
             //return;
         }
         async function getDisabledDates() {
-            const res = await fetch(`http://localhost:3001/data?roomID=${id}`);
+            const res = await fetch(`http://localhost:3001/api/data?roomID=${id}`);
             const data = await res.json();
             const datesToDisable = new Set();
             data.forEach((event: { startDate: string, endDate: string }) => {
@@ -98,9 +98,6 @@ export default function Form({ id }: FormProps) {
                     <div>
                         <button className="bg-green-100 rounded px-2 py-1 hover:bg-green-200" type="submit">Wyślij</button>
                     </div>
-                    <Link href={'/reservation'}>
-                        TODO
-                    </Link>
                 </form>
             </Popup>
 
