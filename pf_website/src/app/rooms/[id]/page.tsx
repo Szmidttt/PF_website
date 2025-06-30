@@ -27,7 +27,7 @@ export default async function Page({
                 height={1280}
                 alt={room.id}
             />
-            <div className="w-1/2 flex flex-col items-center justify-center bg-green-200">
+            <div className="w-1/2 flex flex-col items-center justify-center">
                 <span className="font-bold">{room.name}</span>
                 <span className="p-2">{room.description}</span>
                 <div className="flex flex-row">

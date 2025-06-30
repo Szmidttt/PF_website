@@ -59,28 +59,31 @@ export default function ReservationForm({ id }: FormProps) {
 
     return (
         <div>
-            <Popup trigger={<button className="bg-white px-2 py-1 rounded-lg hover:bg-gray-100"> Zarezerwuj</button>}
+            <Popup trigger={<button className="bg-white px-2 py-1.25 rounded-lg hover:bg-sky-100"> Zarezerwuj</button>}
                 contentStyle={{
                     width: '40vw',
                     height: '70vh',
                     padding: '2rem',
                     borderRadius: '1rem',
-                    overflow: 'auto',
+
+                }}
+                overlayStyle={{
+                    background: "rgba(0, 0, 0, 0.3)",
+                    backdropFilter: "blur(5px)",
+                    WebkitBackdropFilter: "blur(5px)",
                 }}
                 position="center center"
                 modal={true}>
-                
-                <form className="flex flex-col items-center justify-center" action={createEvent}>
+                <form className="flex flex-col items-center justify-center bg-sky-100 p-5 rounded-lg" action={createEvent}>
                     <div>
                         <label htmlFor="email">email</label>
                     </div>
                     <div>
-                        <input type="email" name="summary" />
-
+                        <input className="bg-white rounded" type="email" name="summary" />
                     </div>
                     <input type="hidden" name="description" value={id}></input>
                     <input type="hidden" name="roomID" value={id}></input>
-                    <div>
+                    <div className="flex flex-col items-center">
                         <Calendar
                             locale="pl-PL"
                             tileDisabled={({ date }) => {
@@ -90,13 +93,14 @@ export default function ReservationForm({ id }: FormProps) {
                             minDate={new Date("2025-07-01")}
                             onChange={onChange} value={value}
                             selectRange={true} />
-                        <label>Od </label>
-                        <input type="text" name="startDate" value={getStartDate()} readOnly></input>
-                        <label> Do </label>
-                        <input type="text" name="endDate" value={Array.isArray(value) && value[1] !== null ? value[1].toISOString().split('T')[0] : new Date().toISOString().split('T')[0]} readOnly></input>
+                        <label> DATA PRZYJAZDU </label>
+                        <input className="text-center" type="text" name="startDate" value={getStartDate()} readOnly></input>
+                        <label> DATA WYJAZDU </label>
+                        <input className="text-center" type="text" name="endDate" value={Array.isArray(value) && value[1] !== null ? value[1].toISOString().split('T')[0] : new Date().toISOString().split('T')[0]} readOnly></input>
+
                     </div>
                     <div>
-                        <button className="bg-green-100 rounded px-2 py-1 hover:bg-green-200" type="submit">Wyślij</button>
+                        <button className="bg-blue-600 rounded px-2 py-1 hover:bg-blue-400 hover:text-black text-sky-100" type="submit">Wyślij</button>
                     </div>
                 </form>
             </Popup>

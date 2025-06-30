@@ -1,5 +1,7 @@
+import {useForm} from "react-hook-form"
+import Form from 'next/form'
 export default function ContactForm() {
-    return <form className="bg-blue-300 p-4 rounded-lg w-1/3">
+    return <Form action="string" className="bg-blue-500 p-4 rounded-lg w-1/3 text-sky-100">
         <div className="w-full flex flex-col">
             <div>
                 <label>
@@ -42,5 +44,5 @@ export default function ContactForm() {
 
             </div>
         </div>
-    </form>
+    </Form>
 }

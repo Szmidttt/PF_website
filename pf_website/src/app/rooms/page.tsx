@@ -4,7 +4,7 @@ export default function RoomsPage() {
     return (
         <div>
             <div className="fixed top-0 left-0 w-screen h-screen -z-10">
-                <div className="object-cover w-full h-ful blur-sm">
+                <div className="object-cover w-full h-full">
                     <Image
                         className=""
                         src="/bg-img.webp"
