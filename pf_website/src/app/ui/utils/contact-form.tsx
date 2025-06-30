@@ -1,5 +1,5 @@
 export default function ContactForm() {
-    return <form className="bg-blue-100 p-4 rounded-lg w-1/3">
+    return <form className="bg-blue-300 p-4 rounded-lg w-1/3">
         <div className="w-full flex flex-col">
             <div>
                 <label>

@@ -1,8 +1,8 @@
-'use-client'
+'use client'
 import { MoonIcon,SunIcon } from "@heroicons/react/24/outline"
 import { useState,useEffect } from "react"
 export default function ThemeButton(){
-    const [isDark, setIsDark] = useState(false);
+    const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', isDark);
