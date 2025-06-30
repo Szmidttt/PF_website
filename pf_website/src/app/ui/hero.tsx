@@ -18,7 +18,7 @@ export default function HeroSection() {
                     <Link
                         href="/rooms"
                         key="wiecej-link"
-                        className="rounded-lg bg-green-100 p-4 text-black hover:bg-green-200">WIĘCEJ
+                        className="rounded-lg bg-blue-100 p-4 text-black hover:bg-blue-200">WIĘCEJ
                     </Link>
                 </div>
 

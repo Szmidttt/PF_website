@@ -1,6 +1,6 @@
 import Image from "next/image";
 import rooms from "@/app/data/rooms.json"
-import FormPopup from "../../ui/reservation-form";
+import ReservationForm from "../../ui/reservation-form";
 import 'reactjs-popup/dist/index.css';
 
 export function generateStaticParams() {
@@ -32,7 +32,7 @@ export default async function Page({
                 <span className="p-2">{room.description}</span>
                 <div className="flex flex-row">
                     <span className="font-semibold px-4">{room.price} zł/dzień</span>
-                    <FormPopup id={room.id}/>
+                    <ReservationForm id={room.id}/>
                 </div>
 
             </div>

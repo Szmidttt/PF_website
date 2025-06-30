@@ -14,7 +14,7 @@ type FormProps = {
     id: string;
 };
 
-export default function Form({ id }: FormProps) {
+export default function ReservationForm({ id }: FormProps) {
     const [disabledDates, setDiabledDates] = useState(new Set());
     const [value, onChange] = useState<Value>(null);
     const isFirstRender = useRef(true);
@@ -48,7 +48,7 @@ export default function Form({ id }: FormProps) {
                 let endDate = new Date(event.endDate);
                 console.log(event);
                 while (startDate.getTime() != endDate.getTime()) {
-                    datesToDisable.add(startDate.toLocaleDateString());
+                    datesToDisable.add(startDate.toISOString().split('T')[0]);
                     startDate.setDate(startDate.getDate() + 1);
                 }
             });
@@ -84,7 +84,7 @@ export default function Form({ id }: FormProps) {
                         <Calendar
                             locale="pl-PL"
                             tileDisabled={({ date }) => {
-                                return disabledDates.has(date.toLocaleDateString())
+                                return disabledDates.has(date.toISOString().split('T')[0])
                             }}
                             maxDate={new Date("2025-10-01")}
                             minDate={new Date("2025-07-01")}
