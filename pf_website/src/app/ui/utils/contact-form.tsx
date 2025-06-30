@@ -1,6 +1,6 @@
 export default function ContactForm() {
-    return <form className="bg-green-100 p-4 rounded-lg">
-        <div className="w-full">
+    return <form className="bg-blue-100 p-4 rounded-lg w-1/3">
+        <div className="w-full flex flex-col">
             <div>
                 <label>
                     Imie i Nazwisko

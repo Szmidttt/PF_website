@@ -22,13 +22,14 @@ export default function RoomLinks() {
                             <span className="font-bold p-2">{room.name}</span>
                             <span className="p-2">{room.short_description}</span>
                             <span className="font-semibold p-2">{room.price} zł/dzień</span>
-                            <div className="flex flex-row m-2">
+                            <div className="flex flex-row p-5 items-center justify-between">
                                 <Link
                                     href={room.link}
                                     key={room.id}>
                                     <span className="bg-white px-4 py-2 rounded-lg hover:bg-yellow-100 ">Więcej</span>
 
                                 </Link>
+                                <div className="p-3"></div>
                                 <ReservationForm id={room.id} />
                             </div>
                         </div>

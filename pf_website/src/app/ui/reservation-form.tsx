@@ -59,7 +59,7 @@ export default function ReservationForm({ id }: FormProps) {
 
     return (
         <div>
-            <Popup trigger={<button className="bg-white py-2 px-4 rounded-lg hover:bg-gray-100"> Zarezerwuj</button>}
+            <Popup trigger={<button className="bg-white px-2 py-1 rounded-lg hover:bg-gray-100"> Zarezerwuj</button>}
                 contentStyle={{
                     width: '40vw',
                     height: '70vh',
