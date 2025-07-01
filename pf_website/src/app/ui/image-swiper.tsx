@@ -34,7 +34,7 @@ export default function ImageSwiper() {
                     navigation
                     pagination={{ clickable: true }}
                     scrollbar={{ draggable: true }}
-                    autoplay={{ delay: 3000 }}
+                    autoplay={{ delay: 6000 }}
 
                     onSwiper={(swiper) => console.log(swiper)}
                     onSlideChange={() => console.log('slide change')}

@@ -1,8 +1,8 @@
-import ImageList from "../ui/gallery/image-list";
-
-export default function GalleryPage() {
-    return (
-    <div className="grid grid-col-3">
-       <ImageList/>
-    </div>);
+import PhotoGallery from "../ui/gallery/photo-gallery";
+export default function Page(){
+    return(
+        <div>
+            <PhotoGallery/>
+        </div>
+    );
 }
