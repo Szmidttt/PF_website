@@ -1,6 +1,5 @@
 import HeroSection from "./ui/hero";
 import ReservationLink from "./ui/reservation-link";
-import Link from "next/link";
 import ImageSwiper from "./ui/image-swiper";
 import FixedImage from "./ui/fixed-image";
 export default function Home() {
