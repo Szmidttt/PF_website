@@ -1,4 +1,3 @@
-import { MapPinIcon } from "@heroicons/react/24/outline";
 import SocialsLinks from "./utils/social-links";
 import ContactInfo from "./utils/contact-info";
 export default function Footer(){
