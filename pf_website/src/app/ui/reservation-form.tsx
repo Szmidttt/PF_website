@@ -4,8 +4,8 @@ import Calendar from "react-calendar";
 import { useEffect, useState, useRef } from "react";
 import 'react-calendar/dist/Calendar.css'
 import Popup from "reactjs-popup";
-import Link from "next/link";
-
+import { useForm } from 'react-hook-form';
+import clsx from "clsx";
 type ValuePiece = Date | null;
 
 type Value = ValuePiece | [ValuePiece, ValuePiece];
@@ -17,7 +17,18 @@ type FormProps = {
 export default function ReservationForm({ id }: FormProps) {
     const [disabledDates, setDiabledDates] = useState(new Set());
     const [value, onChange] = useState<Value>(null);
+    const [isClient, setIsClient] = useState(false);
     const isFirstRender = useRef(true);
+    const {
+        register,
+        handleSubmit,
+        formState: { errors,isValid },
+    } = useForm({
+        mode: "onChange",
+    });
+    const onSubmit = (data : FormData) => {
+      console.log(data);
+  };
     const getStartDate = () => {
         if (Array.isArray(value) && value[0] !== null) {
             const date = new Date(value[0]);
@@ -26,19 +37,12 @@ export default function ReservationForm({ id }: FormProps) {
         }
         return new Date().toISOString().split('T')[0];
     }
-    // const getEndDate= ()=>{
-    //     if(Array.isArray(value) && value[1] !== null){
-    //         const date=new Date;
-    //         date.setDate(value[1].getDate());
-    //         return date.toISOString().split('T')[0];
-    //     }
-    //     return new Date().toISOString().split('T')[0];
-    // }
     useEffect(() => {
         if (isFirstRender.current) {
             isFirstRender.current = false;
             //return;
         }
+        setIsClient(true);
         async function getDisabledDates() {
             const res = await fetch(`http://localhost:3001/api/data?roomID=${id}`);
             const data = await res.json();
@@ -46,7 +50,6 @@ export default function ReservationForm({ id }: FormProps) {
             data.forEach((event: { startDate: string, endDate: string }) => {
                 let startDate = new Date(event.startDate);
                 let endDate = new Date(event.endDate);
-                console.log(event);
                 while (startDate.getTime() != endDate.getTime()) {
                     datesToDisable.add(startDate.toISOString().split('T')[0]);
                     startDate.setDate(startDate.getDate() + 1);
@@ -58,12 +61,13 @@ export default function ReservationForm({ id }: FormProps) {
     }, [id]);
 
     return (
-        <div>
-            <Popup trigger={<button className="bg-white px-2 py-1.25 rounded-lg hover:bg-sky-100"> Zarezerwuj</button>}
+        <div>{isClient && (
+            <Popup
+                trigger={<button className="bg-white px-2 py-1.25 rounded-lg hover:bg-sky-100"> Zarezerwuj</button>}
                 contentStyle={{
-                    width: '40vw',
-                    height: '70vh',
-                    padding: '2rem',
+                    width: '60vw',
+                    height: '75vh',
+                    padding: '0rem',
                     borderRadius: '1rem',
 
                 }}
@@ -74,14 +78,16 @@ export default function ReservationForm({ id }: FormProps) {
                 }}
                 position="center center"
                 modal={true}>
-                <form className="flex flex-col items-center justify-center bg-sky-100 p-5 rounded-lg" action={createEvent}>
-                    <div>
-                        <label htmlFor="email">email</label>
+                <form className="flex flex-col items-center justify-center bg-sky-100 rounded-lg w-full h-full" action={createEvent}>
+                    <div className="flex flex-col justify-center items-center">
+                        <label htmlFor="">email*</label>
+                        <input className="bg-white rounded" type="email" {...register("summary", { required: true , pattern: /^\S+@\S+$/i })} />
+                        {errors.summary && <p className="font-bold text-red-500">pole wymagane</p>}
                     </div>
-                    <div>
-                        <input className="bg-white rounded" type="email" name="summary" />
+                    <div className="flex flex-col justify-center items-center">
+                        <label htmlFor="">dodatkowe informacje</label>
+                        <input className="bg-white rounded z-100" type="text" {...register("description", { required: false })} />
                     </div>
-                    <input type="hidden" name="description" value={id}></input>
                     <input type="hidden" name="roomID" value={id}></input>
                     <div className="flex flex-col items-center">
                         <Calendar
@@ -91,7 +97,8 @@ export default function ReservationForm({ id }: FormProps) {
                             }}
                             maxDate={new Date("2025-10-01")}
                             minDate={new Date("2025-07-01")}
-                            onChange={onChange} value={value}
+                            onChange={onChange}
+                            value={value}
                             selectRange={true} />
                         <label> DATA PRZYJAZDU </label>
                         <input className="text-center" type="text" name="startDate" value={getStartDate()} readOnly></input>
@@ -100,11 +107,17 @@ export default function ReservationForm({ id }: FormProps) {
 
                     </div>
                     <div>
-                        <button className="bg-blue-600 rounded px-2 py-1 hover:bg-blue-400 hover:text-black text-sky-100" type="submit">Wyślij</button>
+                        <button 
+                        className={clsx("rounded px-2 py-1",
+                            {
+                                "bg-blue-600 hover:bg-blue-400 hover:text-black text-sky-100" : isValid,
+                                "bg-gray-200 text-black" : !isValid
+                            }
+                        )} type="submit" disabled={!isValid}>Wyślij</button>
                     </div>
                 </form>
             </Popup>
 
-        </div>
+        )}</div>
     )
 }
